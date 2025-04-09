@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Form</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <button type="button" class="button button--primary">Открыть форму</button>
+  </div>
+  <!-- Модальное окно -->
+  <dialog aria-label="Форма" class="modal" id="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Закрыть модальное окно">×</button>
+      <form class="modal__form" id="feedbackForm">
+        <div class="modal__field">
+          <label for="name" class="modal__label modal__label--required">Имя</label>
+          <input type="text" id="name" name="name" class="modal__input" placeholder="Введите ваше имя"
+            pattern="[A-Za-zА-Яа-яЁё\s-]{2,}" required />
+        </div>
+
+        <div class="modal__field">
+          <label for="phone" class="modal__label modal__label--required">Телефон</label>
+          <input type="tel" id="phone" name="phone" class="modal__input" placeholder="+7(999)999-99-99"
+            pattern="^\+?\d*\(?\d*\)?[\d\s-]*$" required />
+        </div>
+
+        <div class="modal__field">
+          <label for="email" class="modal__label modal__label--required">Email</label>
+          <input type="email" id="email" name="email" class="modal__input" placeholder="example@email.com" required />
+        </div>
+
+        <div class="modal__field">
+          <label for="file" class="modal__label">Файл</label>
+          <input type="file" id="file" name="file" class="modal__input modal__input--file" accept="image/*,.pdf" />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__checkbox">
+            <input type="checkbox" name="agreement" required />
+            <span>Согласие на обработку персональных данных</span>
+          </label>
+        </div>
+
+        <button type="submit" class="button button--secondary modal__submit">Отправить</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Блок для вывода результата -->
+  <div class="container">
+    <div class="result" id="result"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
